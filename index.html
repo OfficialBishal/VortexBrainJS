@@ -1,151 +1,24 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <meta charset="utf-8" />
+    <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Page Title</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project</title>
+  </head>
+  <body>
+    <div id="question0"></div>
+    <div id="question1"></div>
+    <div id="question2"></div>
+
+    <button id="next">Next</button>
     <script src="https://unpkg.com/@isomorphic-git/lightning-fs"></script>
     <script src="https://unpkg.com/isomorphic-git@beta"></script>
     <script src="https://cdn.ckeditor.com/ckeditor5/36.0.1/classic/ckeditor.js"></script>
-  </head>
-  <body>
-    <!-- Importing scripts -->
-
-    <!-- Placeholder for ck editor -->
-    <div id="editor"></div>
-
-    <!-- Boilerplate Testing isomorphic git - executes the function 'test' on clicking the buttton id='btn' -->
-    <!-- <script type="module">
-      import http from "https://unpkg.com/isomorphic-git@beta/http/web/index.js";
-      // Initialize isomorphic-git with a file system
-      window.fs = new LightningFS("fs");
-      // I prefer using the Promisified version honestly
-      window.pfs = window.fs.promises;
-
-      // Start writing from here
-      console.log("Hello");
-
-      async function test() {
-        window.dir = "/BBascjgyeiwycuaka";
-        console.log(dir);
-        await pfs.mkdir(dir);
-        // Behold - it is empty!
-        await pfs.readdir(dir);
-        console.log("Created and read the dir");
-        console.log("Cloning");
-        await git.clone({
-          fs,
-          http,
-          dir,
-          corsProxy: "https://cors.isomorphic-git.org",
-          url: "https://github.com/isomorphic-git/isomorphic-git",
-          ref: "main",
-          singleBranch: true,
-          depth: 5,
-        });
-        console.log("Cloned");
-        // Now it should not be empty...
-        await pfs.readdir(dir);
-        console.log("Reading log");
-        await git.log({ fs, dir });
-
-        // Writing more code here
-      }
-
-      let btn = document.getElementById("btn");
-      btn.addEventListener("click", (event) => {
-        test();
-      });
-    </script>
-    <button id="btn">
-      Click me to execute standard code of isomorphic-git
-    </button> -->
-
-    <!-- Saves the ckeditor variable 'data' to git -->
     <script type="module">
       // ------------ Code of isomorphic ------------
       import http from "https://unpkg.com/isomorphic-git@beta/http/web/index.js";
-      // Initialize isomorphic-git with a file system
-      window.fs = new LightningFS("fs");
-      // I prefer using the Promisified version honestly
-      window.pfs = window.fs.promises;
-
-      // ------------ Code of ckeditor ------------
-      // Get a reference to the editor element
-      const editorElement = document.querySelector("#editor");
-
-      // Set initial data for the editor
-      editorElement.innerHTML = "<p>Hello from CKEditor 5!</p>";
-      var data = "";
-      // Create a new instance of ClassicEditor
-      ClassicEditor.create(editorElement)
-        .then((editor) => {
-          console.log("Editor is ready to use!", editor);
-
-          // Add onChange event listener
-          editor.model.document.on("change:data", () => {
-            data = editor.getData();
-            console.log("Data:", data);
-          });
-
-          // Add onBlur event listener
-          editor.editing.view.document.on("blur", () => {
-            console.log("Blur.", editor);
-          });
-
-          // Add onFocus event listener
-          editor.editing.view.document.on("focus", () => {
-            console.log("Focus.", editor);
-          });
-        })
-        .catch((error) => {
-          console.error(error);
-        });
-
-      // ------------ Start writing from here ------------
-      console.log("Hello");
-
-      async function testSecond() {
-        console.log(data);
-        await git.init({ fs, dir: "/tigers" });
-        console.log("init done");
-
-        await fs.promises.writeFile("/tigers/README.md", data);
-        await git.add({ fs, dir: "/tigers", filepath: "README.md" });
-        console.log("file adding done");
-
-        let sha = await git.commit({
-          fs,
-          dir: "/tigers",
-          author: {
-            name: "Mr. test",
-            email: "mrtest@example.com",
-          },
-          message: "Added the README.md file",
-        });
-        console.log(sha);
-        console.log("commit done");
-
-        // Use fsPromises.readFile() method
-        // to read the file
-        fs.promises
-          .readFile("/tigers/README.md")
-          .then(function (result) {
-            console.log("" + result);
-          })
-          .catch(function (error) {
-            console.log(error);
-          });
-      }
-
-      let btnTest = document.getElementById("btnTest");
-      btnTest.addEventListener("click", (event) => {
-        testSecond();
-      });
     </script>
-    <button id="btnTest">
-      Click me to execute git command to add ckeditor text to README.md
-    </button>
+    <script src="main.js"></script>
   </body>
 </html>
