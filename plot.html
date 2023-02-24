@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Plotly Plots</title>
+    <!-- Load plotly.js into the DOM -->
+    <script src="https://cdn.plot.ly/plotly-2.18.0.min.js"></script>
+  </head>
+  <body>
+    <center>
+      <h1><u>Stacked Area Chart without Boundary Line</u></h1>
+    </center>
+    <div id="myDiv"><!-- Plotly chart will be drawn inside this DIV --></div>
+
+    <script>
+      var plotDiv = document.getElementById("plot");
+      var traces = [
+        {
+          x: [1, 2, 3],
+          y: [2, 1, 4],
+          stackgroup: "one",
+          //   fill: "tonexty",
+          // type: "scatter",
+          mode: "none",
+        },
+        {
+          x: [1, 2, 3],
+          y: [1, 1, 2],
+          stackgroup: "one",
+          //   fill: "tonexty",
+          //   type: "scatter",
+          mode: "none",
+        },
+        {
+          x: [1, 2, 3],
+          y: [3, 0, 2],
+          stackgroup: "one",
+          //   fill: "tonexty",
+          //   type: "scatter",
+          mode: "none",
+        },
+      ];
+
+      Plotly.newPlot("myDiv", traces, {
+        title: "stacked and filled line chart",
+      });
+    </script>
+  </body>
+</html>

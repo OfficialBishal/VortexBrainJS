@@ -56,20 +56,21 @@ console.log("Hello");
 var allData = "";
 
 async function testSecond() {
-  data.map((data, i) => {
-    allData = allData + data + "$$$$$";
-  });
+  // data.map((data, i) => {
+  //   allData = allData + data + "$$$$$";
+  // });
+  allData = data.join("$$$$$");
   console.log(allData);
-  await git.init({ fs, dir: "/tigers" });
+  await git.init({ fs, dir: "/tigerss" });
   console.log("init done");
 
-  await fs.promises.writeFile("/tigers/README.md", allData);
-  await git.add({ fs, dir: "/tigers", filepath: "README.md" });
+  await fs.promises.writeFile("/tigerss/README.md", allData);
+  await git.add({ fs, dir: "/tigerss", filepath: "README.md" });
   console.log("file adding done");
 
   let sha = await git.commit({
     fs,
-    dir: "/tigers",
+    dir: "/tigerss",
     author: {
       name: "Mr. test",
       email: "mrtest@example.com",
@@ -82,7 +83,7 @@ async function testSecond() {
   // Use fsPromises.readFile() method
   // to read the file
   fs.promises
-    .readFile("/tigers/README.md")
+    .readFile("/tigerss/README.md")
     .then(function (result) {
       console.log("" + result);
     })
